@@ -21,9 +21,9 @@ configuration = pdfkit.configuration(wkhtmltopdf=binary_path)
 
 app = Chalice(app_name='pdf')
 
-AWS_ACCESS_KEY = os.getenv('AWS_ACCESS_KEY')
-AWS_SECRET_KEY = os.getenv('AWS_SECRET_KEY')
-AWS_S3_BUCKET = os.getenv('AWS_S3_BUCKET')
+AWS_ACCESS_KEY = os.getenv('AWS_ACCESS')
+AWS_SECRET_KEY = os.getenv('AWS_SECRET')
+AWS_S3_BUCKET = os.getenv('AWS_BUCKET')
 AWS_REGION_NAME = os.getenv('AWS_REGION_NAME')
 
 
