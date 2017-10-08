@@ -1,0 +1,22 @@
+# Container used to build AWS lambda packages
+FROM amazonlinux:latest
+
+RUN yum update && \
+    yum -y install \
+    python36 \
+    python36-devel \
+    python36-setuptools \
+    python36-pip \
+    libtiff \
+    libffi-devel \
+    gcc \
+    openssl-devel \
+
+# repoquery -l python36-pip
+RUN /usr/bin/pip-3.6 install --upgrade pip
+
+
+
+WORKDIR /app/
+
+COPY . /app

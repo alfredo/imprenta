@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  lambda:
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+    build:
+      context: .
+      dockerfile: Dockerfile.lambda
+    volumes:
+      - .:/app

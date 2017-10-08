@@ -1,0 +1,6 @@
+.chalice/deployments/
+.chalice/venv/
+*.pyc
+*.egg-info
+vendor/wkhtmltopdf
+wkhtmltopdf
