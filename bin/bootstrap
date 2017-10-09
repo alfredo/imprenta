@@ -8,26 +8,32 @@ export WKHTMLTTOPDF_VERSION="0.12.4"
 
 function install_wkhtmltopdf {
   if [ ! -f pdf/vendor/wkhtmltopdf ]; then
+    echo "Installing wkhtmltopdf."
     wget -qO- https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLTTOPDF_VERSION}/wkhtmltox-${WKHTMLTTOPDF_VERSION}_linux-generic-amd64.tar.xz | tar xvz
-    cp wkhtmltox/bin/wkhtmltopdf pdf/vendor
+    cp wkhtmltox/bin/wkhtmltopdf pdf/vendor/
+    cp wkhtmltox/bin/wkhtmltopdf pdf/
     rm -rf wkhtmltox/
   fi
 }
 
 
 function prepare_docker {
+  echo "Preparing Docker."
   docker-compose build
   docker-compose run lambda /usr/bin/pip-3.6 install -r /app/pdf/requirements_built.txt -t /app/pdf/vendor/
 }
 
 
 function install_python_dependencies {
+  echo "Installing Python dependencies."
   pip install -r pdf/requirements.txt
 }
 
 function prepare_chalice {
   if [ ! -f pdf/.chalice/config.json ]; then
+    echo "Install chalice config file."
     cp pdf/.chalice/config.json-dist pdf/.chalice/config.json
+    echo "IMPORTANT: Update `pdf/.chalice/config.json` environment variables."
   fi
 }
 
@@ -37,4 +43,3 @@ install_wkhtmltopdf
 prepare_docker
 install_python_dependencies
 prepare_chalice
-
