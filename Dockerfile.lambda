@@ -10,12 +10,7 @@ RUN yum update && \
     libtiff \
     libffi-devel \
     gcc \
-    openssl-devel \
-
-# repoquery -l python36-pip
-RUN /usr/bin/pip-3.6 install --upgrade pip
-
-
+    openssl-devel
 
 WORKDIR /app/
 
