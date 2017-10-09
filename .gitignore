@@ -1,3 +1,5 @@
-pdf/vendor/markupsafe
-notes.org
 *.pyc
+notes.org
+
+pdf/.chalice
+pdf/vendor/markupsafe
