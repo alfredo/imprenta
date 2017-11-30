@@ -1,7 +1,7 @@
 # Container used to build AWS lambda packages
 FROM amazonlinux:latest
 
-RUN yum update && \
+RUN yum -y update && \
     yum -y install \
     python36 \
     python36-devel \
