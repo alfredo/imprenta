@@ -9,7 +9,7 @@ export WKHTMLTTOPDF_VERSION="0.12.4"
 function install_wkhtmltopdf {
   if [ ! -f pdf/vendor/wkhtmltopdf ]; then
     echo "Installing wkhtmltopdf."
-    wget -qO- https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLTTOPDF_VERSION}/wkhtmltox-${WKHTMLTTOPDF_VERSION}_linux-generic-amd64.tar.xz | tar xvz
+    wget -qO- https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/${WKHTMLTTOPDF_VERSION}/wkhtmltox-${WKHTMLTTOPDF_VERSION}_linux-generic-amd64.tar.xz | tar xpJ
     cp wkhtmltox/bin/wkhtmltopdf pdf/vendor/
     cp wkhtmltox/bin/wkhtmltopdf pdf/
     rm -rf wkhtmltox/
